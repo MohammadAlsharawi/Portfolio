@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang="nav-about">About | Mohammad Alsharawi</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo" aria-label="Home">
+        <i class="fas fa-brain" aria-hidden="true"></i> Mohammad Alsharawi
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="index.html" class="nav-link" data-lang="nav-home" aria-label="Home"></a></li>
+        <li><a href="about.html" class="nav-link active" data-lang="nav-about" aria-label="About"></a></li>
+        <li><a href="skills.html" class="nav-link" data-lang="nav-skills" aria-label="Skills"></a></li>
+        <li><a href="projects.html" class="nav-link" data-lang="nav-projects" aria-label="Projects"></a></li>
+        <li><a href="experience.html" class="nav-link" data-lang="nav-experience" aria-label="Experience"></a></li>
+        <li><a href="education.html" class="nav-link" data-lang="nav-education" aria-label="Education"></a></li>
+        <li><a href="certifications.html" class="nav-link" data-lang="nav-certifications" aria-label="Certifications"></a></li>
+        <li><a href="services.html" class="nav-link" data-lang="nav-services" aria-label="Services"></a></li>
+        <li><a href="volunteers.html" class="nav-link">Volunteering</a></li>
+        <li><a href="contact.html" class="nav-link" data-lang="nav-contact" aria-label="Contact"></a></li>
+
+      </ul>
+      <div class="hamburger" aria-label="Toggle Menu" aria-expanded="false" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Hero -->
+  <section class="hero animate" id="hero">
+    <div class="hero-content">
+      <h1 data-lang="about-me">About Me</h1>
+      <p data-lang="about-hero-desc">AI Engineer and Backend Developer passionate about building intelligent production systems.</p>
+    </div>
+  </section>
+
+  <!-- About Content -->
+  <section class="section animate" id="about-content">
+    <div class="grid">
+      <!-- Profile Image Column -->
+      <div class="animate delay-1">
+        <div class="profile-img" style="width: 100%; height: 400px; border-radius: 20px; font-size: 8rem; margin: 0 auto; display: block;">
+          MA
+        </div>
+        <!-- Replace with your profile photo: <img src="assets/images/profile.jpg" alt="Mohammad Alsharawi" style="width:100%; height:400px; object-fit:cover; border-radius:20px;" loading="lazy"> -->
+      </div>
+
+      <!-- Bio Column -->
+      <div class="animate delay-2">
+        <div class="card">
+          <h2 data-lang="who-i-am">Who I Am</h2>
+          <p data-lang="who-i-am-desc"><strong data-lang="hero-name">Mohammad Ahmad Alsharawi</strong>, <span data-lang="fifth-year">Fifth Year</span> student at <strong data-lang="aiu-university">Arab International University (AIU)</strong> majoring in <span data-lang="major-ai">Artificial Intelligence</span>. <span data-lang="grad-2027">Expected graduation: July 2027</span>.</p>
+          <p data-lang="about-specialization">Fluent in Arabic and English. Main specialization: <strong>AI Engineer & Backend Developer (Laravel)</strong>.</p>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+          <h3 data-lang="my-focus">My Focus</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li data-lang="focus-ai"><i class="fas fa-check" aria-hidden="true" style="color: var(--accent); margin-right: 1rem;"></i> Artificial Intelligence & Machine Learning</li>
+            <li data-lang="focus-dl"><i class="fas fa-check" aria-hidden="true" style="color: var(--accent); margin-right: 1rem;"></i> Deep Learning & LLM Applications</li>
+            <li data-lang="focus-backend"><i class="fas fa-check" aria-hidden="true" style="color: var(--accent); margin-right: 1rem;"></i> Backend Development & Laravel Advanced Systems</li>
+            <li data-lang="focus-integration"><i class="fas fa-check" aria-hidden="true" style="color: var(--accent); margin-right: 1rem;"></i> AI Integration in Production Systems</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+          <h3 data-lang="professional-goal">Professional Goal</h3>
+          <p data-lang="goal-desc">Building scalable, intelligent systems that solve real business problems. I focus on clean architecture, production-readiness, and seamless AI-backend integration.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="grid" style="margin-top: 4rem;">
+      <div class="card animate delay-3" style="text-align: center;">
+        <h3 data-lang="languages">Languages</h3>
+        <div style="font-size: 1.5rem; gap: 2rem; display: flex; justify-content: center; flex-wrap: wrap;">
+          <span data-lang="arabic-native"><i class="fas fa-flag" aria-hidden="true" style="color: #ff6b35;"></i> Arabic (Native)</span>
+          <span data-lang="english-fluent"><i class="fas fa-globe" aria-hidden="true" style="color: #4285f4;"></i> English (Fluent)</span>
+        </div>
+      </div>
+    </div>
+
+  
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-text">
+        <p data-lang="copyright">&copy; 2024 Mohammad Ahmad Alsharawi. All rights reserved.</p>
+      </div>
+      <div class="footer-icons">
+        <a href="mailto:eng.mohammadalsharawi@gmail.com" class="footer-icon" aria-label="Email Mohammad Alsharawi" title="Send Email" rel="noopener">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/963939795817" class="footer-icon" aria-label="WhatsApp Mohammad Alsharawi" title="WhatsApp Chat" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/MohammadAlsharawi" class="footer-icon" aria-label="GitHub Mohammad Alsharawi" title="GitHub Profile" target="_blank" rel="noopener">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://gitlab.com/MohammedAlsharawi" class="footer-icon" aria-label="GitLab Mohammad Alsharawi" title="GitLab Profile" target="_blank" rel="noopener">
+          <i class="fab fa-gitlab" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mohammad-alsharawi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="footer-icon" aria-label="LinkedIn Mohammad Alsharawi" title="LinkedIn Profile" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/language.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/components.js"></script>
+</body>
+</html>

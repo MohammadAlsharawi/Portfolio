@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-lang="nav-certifications">Certifications | Mohammad Alsharawi</title>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* =========================================================
+       CERTIFICATIONS PAGE ONLY
+       أسماء خاصة لمنع أي تضارب مع style.css
+    ========================================================= */
+
+    .cert-page-shell-x {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .cert-hero-x {
+      min-height: 42vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: calc(var(--navbar-height) + 3rem);
+      padding-bottom: 4rem;
+    }
+
+    .cert-hero-box-x {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cert-hero-box-x h1 {
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 65%, #9be7ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cert-hero-box-x p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .cert-section-x {
+      padding: 1rem 0 6rem;
+    }
+
+    .cert-timeline-wrap-x {
+      position: relative;
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 1rem 0 2rem;
+    }
+
+    .cert-timeline-wrap-x::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #3ddcff 0%, #00d4ff 50%, #63b3ff 100%);
+      box-shadow: 0 0 24px rgba(0, 212, 255, 0.45);
+      z-index: 1;
+    }
+
+    .cert-item-x {
+      position: relative;
+      width: 100%;
+      display: flex;
+      margin-bottom: 3.5rem;
+      z-index: 2;
+    }
+
+    .cert-item-x.left-x {
+      justify-content: flex-start;
+      padding-right: calc(50% + 2.7rem);
+    }
+
+    .cert-item-x.right-x {
+      justify-content: flex-end;
+      padding-left: calc(50% + 2.7rem);
+    }
+
+    .cert-item-x::before {
+      content: "";
+      position: absolute;
+      top: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #7cecff;
+      border: 4px solid #0a0a0a;
+      box-shadow:
+        0 0 0 8px rgba(0, 212, 255, 0.12),
+        0 0 20px rgba(0, 212, 255, 0.6);
+      z-index: 3;
+    }
+
+    .cert-card-x {
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .cert-card-x:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 212, 255, 0.45);
+      box-shadow:
+        0 28px 70px rgba(0, 0, 0, 0.45),
+        0 0 24px rgba(0, 212, 255, 0.18);
+    }
+
+    .cert-badge-x {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 4;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #67e8f9, #38bdf8);
+      color: #04111d;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      box-shadow: 0 10px 24px rgba(56, 189, 248, 0.35);
+    }
+
+    .cert-image-box-x {
+      width: 100%;
+      height: 360px;
+      background: #eef7ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+    }
+
+    .cert-image-x {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 16px;
+      background: #ffffff;
+    }
+
+    .cert-content-x {
+      padding: 1.4rem 1.4rem 1.5rem;
+    }
+
+    .cert-title-x {
+      font-size: 1.18rem;
+      font-weight: 800;
+      line-height: 1.75;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .cert-date-x {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      background: rgba(0, 212, 255, 0.12);
+      border: 1px solid rgba(0, 212, 255, 0.24);
+      color: #96edff;
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .cert-desc-x {
+      color: #d7e4ef;
+      font-size: 0.98rem;
+      line-height: 1.9;
+    }
+
+    .cert-view-x {
+      margin-top: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .cert-modal-x {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: rgba(2, 6, 12, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 9999;
+    }
+
+    .cert-modal-x.active {
+      display: flex;
+    }
+
+    .cert-modal-box-x {
+      width: min(1700px, 120vw);
+      max-height: 96vh;
+      overflow-y: auto;
+      background: #101827;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.5);
+      position: relative;
+      padding: 1rem;
+    }
+
+    .cert-modal-close-x {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.10);
+      color: #ffffff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 5;
+    }
+
+    .cert-modal-close-x:hover {
+      background: #67e8f9;
+      color: #04111d;
+      transform: rotate(90deg) scale(1.04);
+    }
+
+    .cert-modal-grid-x {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.5rem;
+      align-items: start;
+      margin-top: 1.2rem;
+    }
+
+    .cert-modal-image-wrap-x {
+      width: 100%;
+      min-height: 420px;
+      background: #eef7ff;
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .cert-modal-image-x {
+      width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      display: block;
+      background: #ffffff;
+      border-radius: 18px;
+    }
+
+    .cert-modal-info-x {
+      padding: 0.6rem 0.4rem 0.4rem 0;
+    }
+
+    .cert-modal-info-x h2 {
+      font-size: 1.8rem;
+      line-height: 1.5;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .cert-modal-date-x {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      background: rgba(0, 212, 255, 0.12);
+      border: 1px solid rgba(0, 212, 255, 0.24);
+      color: #96edff;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .cert-modal-info-x p {
+      color: #d9e6f2;
+      font-size: 1rem;
+      line-height: 1.95;
+      margin-bottom: 1rem;
+    }
+
+    .cert-modal-note-x {
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #cfe3f3;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 992px) {
+      .cert-modal-grid-x {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cert-page-shell-x {
+        padding: 0 1rem;
+      }
+
+      .cert-timeline-wrap-x::before {
+        left: 24px;
+        transform: none;
+      }
+
+      .cert-item-x.left-x,
+      .cert-item-x.right-x {
+        justify-content: flex-start;
+        padding-left: 4rem;
+        padding-right: 0;
+      }
+
+      .cert-item-x::before {
+        left: 24px;
+        transform: translateX(-50%);
+      }
+
+      .cert-card-x {
+        max-width: 100%;
+      }
+
+      .cert-image-box-x {
+        height: 300px;
+      }
+
+      .cert-modal-box-x {
+        padding: 0.8rem;
+      }
+
+      .cert-modal-info-x h2 {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo" aria-label="Home">
+        <i class="fas fa-brain" aria-hidden="true"></i> Mohammad Alsharawi
+      </a>
+
+      <ul class="navbar-nav">
+        <li><a href="index.html" class="nav-link" data-lang="nav-home" aria-label="Home"></a></li>
+        <li><a href="about.html" class="nav-link" data-lang="nav-about" aria-label="About"></a></li>
+        <li><a href="skills.html" class="nav-link" data-lang="nav-skills" aria-label="Skills"></a></li>
+        <li><a href="projects.html" class="nav-link" data-lang="nav-projects" aria-label="Projects"></a></li>
+        <li><a href="experience.html" class="nav-link" data-lang="nav-experience" aria-label="Experience"></a></li>
+        <li><a href="education.html" class="nav-link" data-lang="nav-education" aria-label="Education"></a></li>
+        <li><a href="certifications.html" class="nav-link active" data-lang="nav-certifications" aria-label="Certifications"></a></li>
+        <li><a href="services.html" class="nav-link" data-lang="nav-services" aria-label="Services"></a></li>
+        <li><a href="volunteers.html" class="nav-link">Volunteering</a></li>
+        <li><a href="contact.html" class="nav-link" data-lang="nav-contact" aria-label="Contact"></a></li>
+
+
+      </ul>
+
+
+      <div class="hamburger" aria-label="Toggle Menu" aria-expanded="false" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="cert-hero-x">
+    <div class="cert-page-shell-x">
+      <div class="cert-hero-box-x">
+        <h1 data-lang="certifications">Certifications</h1>
+        <p data-lang="certs-hero-desc">Professional certifications validating my technical expertise.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="cert-section-x" id="certifications">
+    <div class="cert-page-shell-x">
+      <div class="cert-timeline-wrap-x" id="certTimelineX"></div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="cert-modal-x" id="certModalX" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="cert-modal-box-x">
+      <button class="cert-modal-close-x" id="certModalCloseX" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div id="certModalBodyX"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-text">
+        <p data-lang="copyright">&copy; 2024 Mohammad Ahmad Alsharawi. All rights reserved.</p>
+      </div>
+      <div class="footer-icons">
+        <a href="mailto:eng.mohammadalsharawi@gmail.com" class="footer-icon" aria-label="Email Mohammad Alsharawi" title="Send Email" rel="noopener">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/963939795817" class="footer-icon" aria-label="WhatsApp Mohammad Alsharawi" title="WhatsApp Chat" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/MohammadAlsharawi" class="footer-icon" aria-label="GitHub Mohammad Alsharawi" title="GitHub Profile" target="_blank" rel="noopener">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://gitlab.com/MohammedAlsharawi" class="footer-icon" aria-label="GitLab Mohammad Alsharawi" title="GitLab Profile" target="_blank" rel="noopener">
+          <i class="fab fa-gitlab" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mohammad-alsharawi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="footer-icon" aria-label="LinkedIn Mohammad Alsharawi" title="LinkedIn Profile" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const certsDataX = [
+      {
+        title: "AI & Cybersecurity certificate",
+        date: "2026-02-28",
+        displayDate: "28-02-2026",
+        image: "assets/images/certificates/20.jpg",
+        desc: "Certification focused on artificial intelligence and cybersecurity foundations, concepts, and practical understanding."
+      },
+      {
+        title: "Machine Learning with python certificate",
+        date: "2025-09-12",
+        displayDate: "12-09-2025",
+        image: "assets/images/certificates/9.jpg",
+        desc: "Professional training certificate covering machine learning concepts and implementation using Python."
+      },
+      {
+        title: "Deep Learning certificate",
+        date: "2025-09-14",
+        displayDate: "14-09-2025",
+        image: "assets/images/certificates/11.jpg",
+        desc: "Certification validating deep learning knowledge, neural network fundamentals, and practical model development."
+      },
+      {
+        title: "Letter of Recommendation (Back-End development with laravel)",
+        date: "2025-08-14",
+        displayDate: "14-08-2025",
+        image: "assets/images/certificates/13.jpg",
+        desc: "Recommendation letter highlighting backend development capabilities using Laravel and production-oriented implementation."
+      },
+      {
+        title: "CompTIA A+ certificate",
+        date: "2024-09-30",
+        displayDate: "30-09-2024",
+        image: "assets/images/certificates/5.jpg",
+        desc: "Certification related to core IT support, troubleshooting, systems, and foundational computing knowledge."
+      },
+      {
+        title: "From Damascus to global system",
+        date: "2024-01-01",
+        displayDate: "2024",
+        image: "assets/images/certificates/21.jpg",
+        desc: "Professional recognition highlighting growth journey, international perspective, and technical ambition."
+      },
+      {
+        title: "Basics of Digital Marketing",
+        date: "2022-12-27",
+        displayDate: "27-12-2022",
+        image: "assets/images/certificates/7.jpg",
+        desc: "Certification covering digital marketing essentials, online visibility, and digital strategy basics."
+      },
+      {
+        title: "Introduction to Cybersecurity certificate",
+        date: "2022-05-17",
+        displayDate: "17-05-2022",
+        image: "assets/images/certificates/2.jpg",
+        desc: "Foundational cybersecurity certificate introducing digital protection principles, threats, and secure practices."
+      },
+      {
+        title: "UAE Summer Camp",
+        date: "2021-08-30",
+        displayDate: "30-08-2021",
+        image: "assets/images/certificates/6.jpg",
+        desc: "Participation certificate representing engagement in an educational and developmental summer camp program."
+      },
+      {
+        title: "Software Engineering certificate",
+        date: "2021-07-13",
+        displayDate: "13-07-2021",
+        image: "assets/images/certificates/4.jpg",
+        desc: "Certification in software engineering principles, development practices, and structured technical thinking."
+      },
+      {
+        title: "International Computer Driving License (ICDL)",
+        date: "2021-06-14",
+        displayDate: "14-06-2021",
+        image: "assets/images/certificates/18.jpg",
+        desc: "ICDL certificate validating essential computer usage skills and common office productivity tools."
+      },
+      {
+        title: "Basics of Computer certificate",
+        date: "2021-06-12",
+        displayDate: "12-06-2021",
+        image: "assets/images/certificates/17.jpg",
+        desc: "Foundational certificate focused on basic computer operations, usage, and digital literacy."
+      },
+      {
+        title: "Introduction to programming language (python)",
+        date: "2021-04-03",
+        displayDate: "03-04-2021",
+        image: "assets/images/certificates/19.jpg",
+        desc: "Introductory certificate covering Python programming basics, logic, and implementation concepts."
+      },
+      {
+        title: "Introduction to programming language (python)",
+        date: "2021-04-03",
+        displayDate: "03-04-2021",
+        image: "assets/images/certificates/3.jpg",
+        desc: "Introductory programming certificate focused on Python syntax, problem solving, and coding fundamentals."
+      },
+      {
+        title: "Web Development (HTML5, CSS , JS) certificate",
+        date: "2021-03-26",
+        displayDate: "26-03-2021",
+        image: "assets/images/certificates/1.jpg",
+        desc: "Web development certificate covering HTML5, CSS, and JavaScript for front-end development."
+      },
+      {
+        title: "Introduction to AI certificate",
+        date: "2021-03-20",
+        displayDate: "20-03-2021",
+        image: "assets/images/certificates/15.jpg",
+        desc: "Introductory artificial intelligence certificate covering core concepts, applications, and technology foundations."
+      },
+      {
+        title: "Basics of Internet and Communication certificate",
+        date: "2021-03-14",
+        displayDate: "14-03-2021",
+        image: "assets/images/certificates/16.jpg",
+        desc: "Certificate focused on internet usage basics and digital communication concepts."
+      },
+      {
+        title: "Microsoft Excel certificate",
+        date: "2021-03-13",
+        displayDate: "13-03-2021",
+        image: "assets/images/certificates/14.jpg",
+        desc: "Certification demonstrating Microsoft Excel usage, worksheets, formulas, and office productivity basics."
+      },
+      {
+        title: "Microsoft Word certificate",
+        date: "2021-03-12",
+        displayDate: "12-03-2021",
+        image: "assets/images/certificates/12.jpg",
+        desc: "Certification demonstrating Microsoft Word proficiency and document creation fundamentals."
+      },
+      {
+        title: "Full Stack development track certificate",
+        date: "2021-02-10",
+        displayDate: "10-02-2021",
+        image: "assets/images/certificates/8.jpg",
+        desc: "Full-stack development track certificate covering general development workflow and technical foundations."
+      },
+      {
+        title: "Full Stack development track certificate",
+        date: "2021-02-10",
+        displayDate: "10-02-2021",
+        image: "assets/images/certificates/10.jpg",
+        desc: "Full-stack development certificate representing training across multiple development layers and concepts."
+      }
+    ];
+
+    const sortedCertsX = [...certsDataX].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    const certTimelineX = document.getElementById("certTimelineX");
+    const certModalX = document.getElementById("certModalX");
+    const certModalBodyX = document.getElementById("certModalBodyX");
+    const certModalCloseX = document.getElementById("certModalCloseX");
+
+    function buildCertTimelineX() {
+      certTimelineX.innerHTML = sortedCertsX.map((cert, index) => {
+        const sideClass = index % 2 === 0 ? "left-x" : "right-x";
+        return `
+          <div class="cert-item-x ${sideClass}">
+            <div class="cert-card-x" onclick="openCertModalX(${index})" tabindex="0" role="button" aria-label="Open certificate ${cert.title}">
+              <div class="cert-badge-x">Certificate</div>
+
+              <div class="cert-image-box-x">
+                <img
+                  src="${cert.image}"
+                  alt="${cert.title}"
+                  class="cert-image-x"
+                  loading="lazy"
+                  onerror="this.style.opacity='0.35'; this.alt='Image not found';"
+                />
+              </div>
+
+              <div class="cert-content-x">
+                <div class="cert-title-x">${cert.title}</div>
+
+                <div class="cert-date-x">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span>${cert.displayDate}</span>
+                </div>
+
+                <div class="cert-desc-x">${cert.desc}</div>
+
+                <div class="cert-view-x">
+                  <i class="fas fa-expand"></i>
+                  <span>View Certificate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openCertModalX(index) {
+      const cert = sortedCertsX[index];
+
+      certModalBodyX.innerHTML = `
+        <div class="cert-modal-grid-x">
+          <div class="cert-modal-image-wrap-x">
+            <img src="${cert.image}" alt="${cert.title}" class="cert-modal-image-x" />
+          </div>
+
+          <div class="cert-modal-info-x">
+            <h2>${cert.title}</h2>
+
+            <div class="cert-modal-date-x">
+              <i class="fas fa-calendar-check"></i>
+              <span>${cert.displayDate}</span>
+            </div>
+
+            <p>${cert.desc}</p>
+
+          </div>
+        </div>
+      `;
+
+      certModalX.classList.add("active");
+      certModalX.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCertModalX() {
+      certModalX.classList.remove("active");
+      certModalX.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    certModalCloseX.addEventListener("click", closeCertModalX);
+
+    certModalX.addEventListener("click", function(e) {
+      if (e.target === certModalX) {
+        closeCertModalX();
+      }
+    });
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        closeCertModalX();
+      }
+    });
+
+    document.addEventListener("keydown", function(e) {
+      const activeCard = document.activeElement;
+      if ((e.key === "Enter" || e.key === " ") && activeCard && activeCard.classList.contains("cert-card-x")) {
+        activeCard.click();
+      }
+    });
+
+    buildCertTimelineX();
+  </script>
+
+  <script src="assets/js/language.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/components.js"></script>
+</body>
+</html>

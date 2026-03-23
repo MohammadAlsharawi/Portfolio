@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Mohammad Alsharawi</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+.contact-section{
+  padding-top: calc(var(--navbar-height) + 80px);
+  padding-bottom: 80px;
+}
+
+.contact-container{
+  max-width: 900px;
+  margin: auto;
+  padding: 0 2rem;
+}
+
+.contact-card{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.contact-card:hover{
+  border-color: #00d4ff;
+  transform: translateY(-5px);
+}
+
+.contact-title{
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.contact-sub{
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+}
+
+.contact-form{
+  display: grid;
+  gap: 18px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline: none;
+  border-color: #00d4ff;
+}
+
+.contact-btn{
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg,#00d4ff,#4facfe);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-btn:hover{
+  transform: translateY(-2px);
+}
+
+#status{
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-brain"></i> Mohammad Alsharawi
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="nav-link" data-lang="nav-home"></a></li>
+      <li><a href="about.html" class="nav-link" data-lang="nav-about"></a></li>
+      <li><a href="skills.html" class="nav-link" data-lang="nav-skills"></a></li>
+      <li><a href="projects.html" class="nav-link" data-lang="nav-projects"></a></li>
+      <li><a href="experience.html" class="nav-link" data-lang="nav-experience"></a></li>
+      <li><a href="education.html" class="nav-link" data-lang="nav-education"></a></li>
+      <li><a href="certifications.html" class="nav-link" data-lang="nav-certifications"></a></li>
+      <li><a href="services.html" class="nav-link" data-lang="nav-services"></a></li>
+      <li><a href="volunteers.html" class="nav-link">Volunteering</a></li>
+      <li><a href="contact.html" class="nav-link active" data-lang="nav-contact"></a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Contact -->
+<section class="contact-section">
+  <div class="contact-container">
+    <div class="contact-card">
+      <div class="contact-title">Send Message</div>
+      <div class="contact-sub">Feel free to contact me anytime</div>
+
+      <form id="contact-form" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+
+        <button type="submit" class="contact-btn">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+
+      <p id="status"></p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-text">
+        <p data-lang="copyright">&copy; 2024 Mohammad Ahmad Alsharawi. All rights reserved.</p>
+      </div>
+      <div class="footer-icons">
+        <a href="mailto:eng.mohammadalsharawi@gmail.com" class="footer-icon" aria-label="Email Mohammad Alsharawi" title="Send Email" rel="noopener">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/963939795817" class="footer-icon" aria-label="WhatsApp Mohammad Alsharawi" title="WhatsApp Chat" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/MohammadAlsharawi" class="footer-icon" aria-label="GitHub Mohammad Alsharawi" title="GitHub Profile" target="_blank" rel="noopener">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://gitlab.com/MohammedAlsharawi" class="footer-icon" aria-label="GitLab Mohammad Alsharawi" title="GitLab Profile" target="_blank" rel="noopener">
+          <i class="fab fa-gitlab" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mohammad-alsharawi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="footer-icon" aria-label="LinkedIn Mohammad Alsharawi" title="LinkedIn Profile" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init("8xRI_YfnU0IQg5Okq");
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  emailjs.sendForm("service_oujl6kk", "template_jagkqcb", this)
+    .then(function() {
+      document.getElementById("status").innerHTML = "Message sent successfully ✔";
+      document.getElementById("status").style.color = "#00ffae";
+      document.getElementById("contact-form").reset();
+    }, function(error) {
+      document.getElementById("status").innerHTML = "Failed to send message ❌";
+      document.getElementById("status").style.color = "red";
+      console.log(error);
+    });
+});
+</script>
+
+<script src="assets/js/language.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/components.js"></script>
+
+</body>
+</html>

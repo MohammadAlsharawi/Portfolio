@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Volunteering | Mohammad Alsharawi</title>
+
+<link rel="stylesheet" href="assets/css/style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+/* =====================================================
+   VOLUNTEERS TIMELINE (أسماء مختلفة لتجنب التضارب)
+===================================================== */
+
+.vol-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 2rem;
+}
+
+.vol-hero {
+  padding-top: 140px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.vol-hero h1 {
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.vol-hero p {
+  color: var(--text-secondary);
+}
+
+/* Timeline */
+.vol-timeline {
+  position: relative;
+  margin-top: 40px;
+  padding-bottom: 80px;
+}
+
+.vol-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #00d4ff, #4facfe);
+  transform: translateX(-50%);
+}
+
+/* Item */
+.vol-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.vol-left {
+  justify-content: flex-start;
+  padding-right: calc(50% + 30px);
+}
+
+.vol-right {
+  justify-content: flex-end;
+  padding-left: calc(50% + 30px);
+}
+
+/* Circle */
+.vol-item::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 25px;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  background: #00d4ff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00d4ff;
+}
+
+/* Card */
+.vol-card {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.vol-card:hover {
+  transform: translateY(-5px);
+  border-color: #00d4ff;
+}
+
+.vol-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.vol-date {
+  font-weight: 700;
+  color: #00d4ff;
+  margin-bottom: 10px;
+}
+
+.vol-desc {
+  color: #ddd;
+  line-height: 1.7;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .vol-timeline::before {
+    left: 20px;
+  }
+
+  .vol-left,
+  .vol-right {
+    padding-left: 60px;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+
+  .vol-item::before {
+    left: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+ <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo" aria-label="Home">
+        <i class="fas fa-brain" aria-hidden="true"></i> Mohammad Alsharawi
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="index.html" class="nav-link" data-lang="nav-home" aria-label="Home"></a></li>
+        <li><a href="about.html" class="nav-link" data-lang="nav-about" aria-label="About"></a></li>
+        <li><a href="skills.html" class="nav-link " data-lang="nav-skills" aria-label="Skills"></a></li>
+        <li><a href="projects.html" class="nav-link" data-lang="nav-projects" aria-label="Projects"></a></li>
+        <li><a href="experience.html" class="nav-link" data-lang="nav-experience" aria-label="Experience"></a></li>
+        <li><a href="education.html" class="nav-link" data-lang="nav-education" aria-label="Education"></a></li>
+        <li><a href="certifications.html" class="nav-link" data-lang="nav-certifications" aria-label="Certifications"></a></li>
+        <li><a href="services.html" class="nav-link" data-lang="nav-services" aria-label="Services"></a></li>
+        <li><a href="volunteers.html" class="nav-link active">Volunteering</a></li>
+        <li><a href="contact.html" class="nav-link" data-lang="nav-contact" aria-label="Contact"></a></li>
+      </ul>
+      <div class="hamburger" aria-label="Toggle Menu" aria-expanded="false" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="vol-hero">
+  <div class="vol-page">
+    <h1>Volunteering</h1>
+    <p>My volunteering journey and leadership experience</p>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="vol-page">
+  <div class="vol-timeline">
+
+    <!-- Item 1 -->
+    <div class="vol-item vol-left">
+      <div class="vol-card">
+        <div class="vol-title">Emirati Marshals - Volunteer</div>
+        <div class="vol-date">Oct 2019 — Nov 2020</div>
+        <div class="vol-desc">
+          Worked as a general volunteer participating in organizing events,
+          helping teams, supporting logistics, and assisting in humanitarian
+          and community activities.
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="vol-item vol-right">
+      <div class="vol-card">
+        <div class="vol-title">Emirati Marshals - Team Leader</div>
+        <div class="vol-date">Nov 2020 — Jun 2022</div>
+        <div class="vol-desc">
+          Promoted to Team Leader where I managed volunteers,
+          organized tasks, coordinated events, and supervised
+          volunteer teams during activities and campaigns.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-text">
+        <p data-lang="copyright">&copy; 2024 Mohammad Ahmad Alsharawi. All rights reserved.</p>
+      </div>
+      <div class="footer-icons">
+        <a href="mailto:eng.mohammadalsharawi@gmail.com" class="footer-icon" aria-label="Email Mohammad Alsharawi" title="Send Email" rel="noopener">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/963939795817" class="footer-icon" aria-label="WhatsApp Mohammad Alsharawi" title="WhatsApp Chat" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/MohammadAlsharawi" class="footer-icon" aria-label="GitHub Mohammad Alsharawi" title="GitHub Profile" target="_blank" rel="noopener">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://gitlab.com/MohammedAlsharawi" class="footer-icon" aria-label="GitLab Mohammad Alsharawi" title="GitLab Profile" target="_blank" rel="noopener">
+          <i class="fab fa-gitlab" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mohammad-alsharawi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="footer-icon" aria-label="LinkedIn Mohammad Alsharawi" title="LinkedIn Profile" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/language.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/components.js"></script>
+
+</body>
+</html>

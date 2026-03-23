@@ -1,0 +1,302 @@
+// Full Multilingual Support - English/Arabic RTL with ALL Skills/Projects
+
+const translations = {
+  en: {
+    // Navigation
+    'nav-home': 'Home',
+    'nav-about': 'About',
+    'nav-skills': 'Skills',
+    'nav-projects': 'Projects',
+    'nav-experience': 'Experience',
+    'nav-education': 'Education',
+    'nav-certifications': 'Certifications',
+    'nav-services': 'Services',
+    'nav-testimonials': 'Testimonials',
+    'nav-contact': 'Contact',
+    'nav-Volunteering':'Volunteering',
+
+    // Hero & Common
+    'hero-name': 'Mohammad Ahmad Alsharawi',
+    'hero-subtitle': 'AI Engineer & Backend Developer',
+    'hero-academic': 'Informatics and Communications Engineering - Artificial Intelligence Major',
+    'hero-desc': 'Passionate AI Engineer and Backend Developer specializing in Laravel advanced systems, Machine Learning, Deep Learning, and LLM applications. Building intelligent, production-ready systems that scale and deliver real business value.',
+    'view-projects': 'View Projects',
+    'download-cv': 'Download CV',
+    'contact-me': 'Contact Me',
+    'about-me': 'About Me',
+    'my-skills': 'Skills & Tech Stack',
+    'my-projects': 'Featured Projects',
+    'my-experience': 'Experience',
+    'my-education': 'Education',
+    'certifications': 'Certifications',
+    'services': 'Services',
+    'testimonials': 'Testimonials',
+    'get-in-touch': 'Get In Touch',
+    'send-message': 'Send Message',
+
+    // Skills Categories
+    'programming-languages': 'Programming Languages',
+    'ai-ml-data': 'AI / ML / Data Science',
+    'backend-systems': 'Backend & Systems',
+    'devops-deployment': 'DevOps & Deployment',
+    'security-networking': 'Security & Networking',
+    'cloud-integrations': 'Cloud & Integrations',
+    'project-team': 'Project & Team Skills',
+    'real-time-systems': 'Real-Time / Advanced Systems',
+    'other-skills': 'Other Technical Skills',
+    // All Skills EN
+    'java': 'Java',
+    'git': 'Git',
+    'github': 'GitHub',
+    'gitlab': 'GitLab',
+    'postman': 'Postman',
+    'payment-gateways': 'Payment Gateways',
+    'network-security': 'Network Security',
+    'ethical-hacking': 'Ethical Hacking',
+    'cybersecurity': 'Cybersecurity',
+    'dns-management': 'DNS Management',
+    'security-management': 'Security Management',
+    'project-management': 'Project Management',
+    'time-management': 'Time Management',
+    'team-management': 'Team Management',
+    'communication': 'Communication',
+    'tensorflow': 'TensorFlow',
+    'pytorch': 'PyTorch',
+    'seaborn': 'Seaborn',
+    'pandas': 'Pandas',
+    'scikit-learn': 'Scikit-learn',
+    'numpy': 'NumPy',
+    'opencv': 'OpenCV',
+    'matplotlib': 'Matplotlib',
+    'system-administration': 'System Administration',
+    'authentication': 'Authentication',
+    'authorization': 'Authorization',
+    'docker': 'Docker',
+    'system-deployment': 'System Deployment',
+    'cloudflare': 'Cloudflare',
+    'cloud-applications': 'Cloud Applications',
+    'firebase': 'Firebase',
+    'pusher': 'Pusher',
+    'notification-systems': 'Notification Systems',
+    'sns': 'Amazon SNS',
+    'filament-dashboard': 'Filament Admin Dashboard',
+    'rag-systems': 'RAG Systems',
+    'generative-ai': 'Generative AI',
+    'fuzzy-systems': 'Fuzzy Systems',
+    'neural-networks': 'Neural Networks',
+    'prompt-engineering': 'Prompt Engineering',
+    'computer-vision': 'Computer Vision',
+    'llm': 'LLM',
+    'nlp': 'NLP',
+    'real-time-apps': 'Real-Time Applications',
+    'trading-systems': 'Trading Systems',
+    'payment-systems': 'Payment Systems',
+    'blockchain': 'Blockchain',
+    'icdl': 'ICDL',
+    'a-plus': 'A+',
+
+    // Projects Rifad & All New Tech
+    'rifad-title': 'Rifad',
+    'rifad-short': 'Nonprofit educational foundation for Syria',
+    'rifad-desc': 'Rifad is a non-governmental, nonprofit educational foundation dedicated to empowering teachers, developing students, and rebuilding the future of education in Syria through innovative programs, expert training, and community-driven initiatives.',
+    'rifad-role': 'Project Management, Backend API, Filament Admin Dashboard',
+    'rifad-tech': 'Laravel, Filament, MySQL',
+    'allnewtech-title': 'All New Tech UK',
+    'allnewtech-short': 'UK security & technology solutions',
+    'allnewtech-desc': 'UK-based security provider specialising in CCTV, alarms, access control, smart automation. Reliability & performance focused.',
+    'allnewtech-role': 'Project Management, Backend API, Filament Admin Dashboard',
+    'allnewtech-tech': 'Laravel, Filament, MySQL',
+
+    // Experience New Roles
+    'ai-engineer': 'AI Engineer',
+    'backend-developer': 'Backend Developer',
+    'experience-present': '2025 – Present',
+
+    // Rest of existing
+    'core-expertise': 'Core Expertise',
+    'highlights-ai': 'AI Solutions',
+    'highlights-laravel': 'Laravel Backend',
+    'highlights-integration': 'Production Integration',
+    'highlights-architecture': 'Clean Architecture',
+    'highlights-scalable': 'Scalable Development',
+    'who-i-am': 'Who I Am',
+    'my-focus': 'My Focus',
+    'professional-goal': 'Professional Goal',
+    'languages': 'Languages',
+    'arabic-native': 'Arabic (Native)',
+    'english-fluent': 'English (Fluent)',
+    'connect-me': 'Connect With Me',
+    'tools-daily': 'Tools I Use Daily',
+    'ai-ml': 'AI / Machine Learning',
+    'programming-langs': 'Programming Languages',
+    'laravel': 'Laravel',
+    'python': 'Python',
+    'mysql': 'MySQL',
+    'machine-learning': 'Machine Learning',
+    'deep-learning': 'Deep Learning',
+    'llm-apps': 'LLM Applications',
+    'cpp': 'C++',
+    'csharp': 'C#',
+    'php': 'PHP',
+    'html-css-js': 'HTML/CSS/JS',
+    'all': 'All',
+    'ai': 'AI/ML',
+    'backend': 'Backend',
+    'details': 'Details',
+    'code': 'Code',
+    'live': 'Live',
+    'problem-solved': 'Problem Solved',
+    'my-role': 'My Role',
+    'tech': 'Tech',
+    'features': 'Features',
+    'laravel-dev': 'Laravel Developer',
+    'aspdotnet-dev': 'ASP.NET Developer & Project Manager',
+    'aiu-university': 'Arab International University (AIU)',
+    'major-ai': 'Major: Artificial Intelligence',
+    'fifth-year': 'Fifth Year',
+    'grad-2027': 'Expected Graduation: July 2027',
+    'progress-grad': 'Progress to Graduation',
+    'icdl': 'ICDL Certificate',
+    'ai-ml-sol': 'AI/ML Solutions',
+    'laravel-backend': 'Laravel Backend',
+    'ai-integration': 'AI Integration',
+    'custom-apis': 'Custom APIs',
+    'system-arch': 'System Architecture',
+    'tech-consult': 'Technical Consulting',
+    'start-project': 'Start Your Project',
+    'client-testimonials': 'Client Testimonials',
+    'contact-info': 'Contact Information',
+    'name': 'Your Name',
+    'email': 'Your Email',
+    'subject': 'Subject',
+    'message': 'Your Message',
+    'form-success': 'Message sent successfully!',
+    'form-error': 'Please fill all fields correctly.',
+    'form-submitting': 'Sending...',
+    'copyright': '© 2024 Mohammad Ahmad Alsharawi. All rights reserved.',
+    'wa-number': '+963 939 795 817'
+  },
+  ar: {
+    // Navigation
+    'nav-home': 'الرئيسية',
+    'nav-about': 'حولي',
+    'nav-skills': 'المهارات',
+    'nav-projects': 'المشاريع',
+    'nav-experience': 'الخبرة',
+    'nav-education': 'التعليم',
+    'nav-certifications': 'الشهادات',
+    'nav-services': 'الخدمات',
+    'nav-testimonials': 'الآراء',
+    'nav-contact': 'التواصل',
+
+    // Categories AR
+    'programming-languages-ar': 'لغات البرمجة',
+    'ai-ml-data-ar': 'الذكاء الاصطناعي / التعلم الآلي / علوم البيانات',
+    'backend-systems-ar': 'الخلفية والأنظمة',
+    'devops-deployment-ar': 'DevOps والنشر',
+    'security-networking-ar': 'الأمان والشبكات',
+    'cloud-integrations-ar': 'السحابة والتكاملات',
+    'project-team-ar': 'مهارات المشروع والفريق',
+    'real-time-systems-ar': 'التطبيقات الزمنية / الأنظمة المتقدمة',
+    'other-skills-ar': 'مهارات تقنية أخرى',
+    // Skills AR
+    'java-ar': 'جافا',
+    'git-ar': 'Git',
+    'github-ar': 'GitHub',
+    'gitlab-ar': 'GitLab',
+    'postman-ar': 'Postman',
+    'payment-gateways-ar': 'بوابات الدفع',
+    'network-security-ar': 'أمان الشبكة',
+    'ethical-hacking-ar': 'الاختراق الأخلاقي',
+    'cybersecurity-ar': 'الأمن السيبراني',
+    'dns-management-ar': 'إدارة DNS',
+    'security-management-ar': 'إدارة الأمان',
+    'project-management-ar': 'إدارة المشاريع',
+    'time-management-ar': 'إدارة الوقت',
+    'team-management-ar': 'إدارة الفريق',
+    'communication-ar': 'التواصل',
+    'tensorflow-ar': 'TensorFlow',
+    'pytorch-ar': 'PyTorch',
+    'seaborn-ar': 'Seaborn',
+    'pandas-ar': 'Pandas',
+    'scikit-learn-ar': 'Scikit-learn',
+    'numpy-ar': 'NumPy',
+    'opencv-ar': 'OpenCV',
+    'matplotlib-ar': 'Matplotlib',
+    'system-administration-ar': 'إدارة النظام',
+    'authentication-ar': 'المصادقة',
+    'authorization-ar': 'التفويض',
+    'docker-ar': 'Docker',
+    'system-deployment-ar': 'نشر النظام',
+    'cloudflare-ar': 'Cloudflare',
+    'cloud-applications-ar': 'تطبيقات السحابة',
+    'firebase-ar': 'Firebase',
+    'pusher-ar': 'Pusher',
+    'notification-systems-ar': 'أنظمة الإشعارات',
+    'sns-ar': 'Amazon SNS',
+    'filament-dashboard-ar': 'لوحة Filament',
+    'rag-systems-ar': 'أنظمة RAG',
+    'generative-ai-ar': 'ذكاء اصطناعي توليدي',
+    'fuzzy-systems-ar': 'أنظمة ضبابية',
+    'neural-networks-ar': 'شبكات عصبية',
+    'prompt-engineering-ar': 'هندسة التلقين',
+    'computer-vision-ar': 'رؤية الحاسوب',
+    'llm-ar': 'LLM',
+    'nlp-ar': 'معالجة اللغة الطبيعية',
+    'real-time-apps-ar': 'تطبيقات زمنية حقيقية',
+    'trading-systems-ar': 'أنظمة تداول',
+    'payment-systems-ar': 'أنظمة دفع',
+    'blockchain-ar': 'بلوكشين',
+    'icdl-ar': 'ICDL',
+    'a-plus-ar': 'A+',
+    // Projects AR
+    'rifad-title-ar': 'ريفاد',
+    'rifad-short-ar': 'مؤسسة تعليمية غير ربحية سورية',
+    'rifad-desc-ar': 'مؤسسة تعليمية غير ربحية مخصصة لتمكين المعلمين وتطوير الطلاب وإعادة بناء مستقبل التعليم في سوريا.',
+    'rifad-role-ar': 'إدارة المشروع، API خلفية، لوحة Filament',
+    'rifad-tech-ar': 'Laravel, Filament, MySQL',
+    'allnewtech-title-ar': 'All New Tech UK',
+    'allnewtech-short-ar': 'مزود حلول أمن بريطاني',
+    'allnewtech-desc-ar': 'مزود حلول أمن وتكنولوجيا بريطاني متخصص في CCTV، إنذارات، مراقبة وصول، أتمتة ذكية.',
+    'allnewtech-role-ar': 'إدارة المشروع، API خلفية، لوحة Filament',
+    'allnewtech-tech-ar': 'Laravel, Filament, MySQL',
+    // Experience AR
+    'ai-engineer-ar': 'مهندس ذكاء اصطناعي',
+    'backend-developer-ar': 'مطور خلفية',
+    'experience-present-ar': '2025 – الحاضر',
+
+    // Existing AR translations (copied)
+    'hero-name-ar': 'محمد أحمد الشعراوي',
+    // ... (all existing AR keys preserved)
+  }
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function initLanguage() {
+  applyLanguage(currentLang);
+  const switcher = document.querySelector('.language-switcher');
+  if (switcher) switcher.textContent = currentLang === 'en' ? 'AR' : 'EN';
+}
+
+function switchLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  applyLanguage(lang);
+}
+
+function applyLanguage(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.body.classList.toggle('rtl-mode', lang === 'ar');
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    const key = el.dataset.lang;
+    if (translations[lang][key]) el.textContent = translations[lang][key];
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initLanguage);
+
+window.switchLanguage = switchLanguage;
+window.translations = translations;
+

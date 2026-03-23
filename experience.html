@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang="nav-experience">Experience | Mohammad Alsharawi</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* =========================
+       EXPERIENCE PAGE ONLY
+       أسماء خاصة حتى ما يصير تضارب
+    ========================= */
+
+    .experience-hero-fix {
+      min-height: auto !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--navbar-height) + 3rem) 2rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .experience-hero-fix .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .experience-hero-fix h1 {
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+
+    .experience-hero-fix p {
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .experience-timeline-section {
+      padding-top: 2rem !important;
+      padding-bottom: 7rem !important;
+    }
+
+    .experience-timeline-wrapper {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .experience-timeline-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      border-radius: 999px;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 212, 255, 0.15),
+        var(--accent),
+        var(--accent-dark),
+        rgba(0, 212, 255, 0.12)
+      );
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.18);
+      z-index: 1;
+    }
+
+    .experience-timeline-item {
+      position: relative;
+      display: flex;
+      width: 100%;
+      margin-bottom: 3.5rem;
+      z-index: 2;
+    }
+
+    .experience-timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .experience-timeline-item.left-side {
+      justify-content: flex-start;
+      padding-right: calc(50% + 3rem);
+    }
+
+    .experience-timeline-item.right-side {
+      justify-content: flex-end;
+      padding-left: calc(50% + 3rem);
+    }
+
+    .experience-timeline-dot {
+      position: absolute;
+      top: 2.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border: 4px solid var(--bg-primary);
+      box-shadow:
+        0 0 0 6px rgba(0, 212, 255, 0.08),
+        0 0 25px rgba(0, 212, 255, 0.45);
+      z-index: 3;
+    }
+
+    .experience-timeline-card {
+      position: relative;
+      width: 100%;
+      max-width: 470px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.28),
+        0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    .experience-timeline-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 24px;
+      right: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.9;
+    }
+
+    .experience-timeline-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.08), transparent 35%);
+    }
+
+    .experience-timeline-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 212, 255, 0.25);
+      box-shadow:
+        0 28px 60px rgba(0, 0, 0, 0.36),
+        0 0 30px rgba(0, 212, 255, 0.12);
+    }
+
+    .experience-timeline-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .experience-timeline-card-header h2,
+    .experience-timeline-card-header h3 {
+      margin: 0;
+      font-size: 1.55rem;
+      font-weight: 800;
+      line-height: 1.35;
+      color: var(--text-primary);
+    }
+
+    .experience-timeline-card-header h2 {
+      color: var(--accent);
+    }
+
+    .experience-timeline-date {
+      flex-shrink: 0;
+      padding: 0.48rem 1rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .experience-timeline-date.highlighted {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--bg-primary);
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(0, 212, 255, 0.22);
+    }
+
+    .experience-timeline-date.muted {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-secondary);
+    }
+
+    .experience-timeline-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 1.4rem;
+      font-size: 1.02rem;
+      line-height: 1.9;
+      color: var(--text-secondary);
+    }
+
+    .experience-timeline-tags {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .experience-skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.12);
+      color: var(--text-primary);
+      font-size: 0.93rem;
+      font-weight: 600;
+      line-height: 1;
+      transition: var(--transition);
+    }
+
+    .experience-skill-tag:hover {
+      transform: translateY(-2px);
+      background: rgba(0, 212, 255, 0.14);
+      border-color: rgba(0, 212, 255, 0.22);
+    }
+
+    .experience-skill-tag i {
+      font-size: 0.95rem !important;
+      margin: 0 !important;
+      filter: none !important;
+    }
+
+    @media (max-width: 992px) {
+      .experience-timeline-wrapper::before {
+        left: 24px;
+        transform: none;
+      }
+
+      .experience-timeline-item,
+      .experience-timeline-item.left-side,
+      .experience-timeline-item.right-side {
+        justify-content: flex-start;
+        padding-left: 4.2rem;
+        padding-right: 0;
+      }
+
+      .experience-timeline-dot {
+        left: 24px;
+        transform: translateX(-50%);
+      }
+
+      .experience-timeline-card {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .experience-hero-fix {
+        padding: calc(var(--navbar-height) + 2.5rem) 1.2rem 3rem;
+      }
+
+      .experience-timeline-section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-bottom: 5rem !important;
+      }
+
+      .experience-timeline-wrapper {
+        padding: 1rem 0;
+      }
+
+      .experience-timeline-item,
+      .experience-timeline-item.left-side,
+      .experience-timeline-item.right-side {
+        padding-left: 3.4rem;
+      }
+
+      .experience-timeline-wrapper::before {
+        left: 18px;
+        width: 3px;
+      }
+
+      .experience-timeline-dot {
+        left: 18px;
+        width: 18px;
+        height: 18px;
+        border-width: 3px;
+        top: 2rem;
+      }
+
+      .experience-timeline-card {
+        padding: 1.4rem;
+        border-radius: 20px;
+      }
+
+      .experience-timeline-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .experience-timeline-card-header h2,
+      .experience-timeline-card-header h3 {
+        font-size: 1.28rem;
+      }
+
+      .experience-timeline-date {
+        font-size: 0.84rem;
+      }
+
+      .experience-skill-tag {
+        font-size: 0.86rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo" aria-label="Home">
+        <i class="fas fa-brain" aria-hidden="true"></i> Mohammad Alsharawi
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="index.html" class="nav-link" data-lang="nav-home" aria-label="Home"></a></li>
+        <li><a href="about.html" class="nav-link" data-lang="nav-about" aria-label="About"></a></li>
+        <li><a href="skills.html" class="nav-link" data-lang="nav-skills" aria-label="Skills"></a></li>
+        <li><a href="projects.html" class="nav-link" data-lang="nav-projects" aria-label="Projects"></a></li>
+        <li><a href="experience.html" class="nav-link active" data-lang="nav-experience" aria-label="Experience"></a></li>
+        <li><a href="education.html" class="nav-link" data-lang="nav-education" aria-label="Education"></a></li>
+        <li><a href="certifications.html" class="nav-link" data-lang="nav-certifications" aria-label="Certifications"></a></li>
+        <li><a href="services.html" class="nav-link" data-lang="nav-services" aria-label="Services"></a></li>
+        <li><a href="volunteers.html" class="nav-link">Volunteering</a></li>
+        <li><a href="contact.html" class="nav-link" data-lang="nav-contact" aria-label="Contact"></a></li>
+      </ul>
+      <div class="hamburger" aria-label="Toggle Menu" aria-expanded="false" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Experience Hero -->
+  <section class="hero animate experience-hero-fix" id="hero">
+    <div class="hero-content">
+      <h1 data-lang="my-experience">Professional Experience</h1>
+      <p data-lang="experience-hero-desc">Comprehensive experience in AI engineering and backend development with production systems.</p>
+    </div>
+  </section>
+
+  <!-- Enhanced Timeline -->
+  <section class="section animate timeline-section experience-timeline-section" id="experience">
+    <div class="experience-timeline-wrapper">
+
+      <!-- AI Engineer -->
+      <div class="experience-timeline-item left-side animate delay-1">
+        <span class="experience-timeline-dot"></span>
+        <div class="experience-timeline-card">
+          <div class="experience-timeline-card-header">
+            <h2 data-lang="ai-engineer">AI Engineer</h2>
+            <span class="experience-timeline-date highlighted" data-lang="experience-present">2025 – Present</span>
+          </div>
+          <p>Developing intelligent systems with ML, DL, LLM integration, RAG systems, neural networks, and production AI deployments.</p>
+          <div class="experience-timeline-tags">
+            <span class="experience-skill-tag"><i class="fas fa-brain" style="color: #ff6b6b;"></i> Machine Learning</span>
+            <span class="experience-skill-tag"><i class="fas fa-layer-group" style="color: #4ecdc4;"></i> Deep Learning</span>
+            <span class="experience-skill-tag"><i class="fas fa-robot" style="color: #45b7d1;"></i> LLM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Laravel Dev -->
+      <div class="experience-timeline-item right-side animate delay-3">
+        <span class="experience-timeline-dot"></span>
+        <div class="experience-timeline-card">
+          <div class="experience-timeline-card-header">
+            <h3 data-lang="laravel-dev">Laravel Developer</h3>
+            <span class="experience-timeline-date highlighted">2024 - Present</span>
+          </div>
+          <p>Scalable backend systems, APIs, database optimization, production architectures.</p>
+          <div class="experience-timeline-tags">
+            <span class="experience-skill-tag"><i class="fab fa-laravel" style="color: #ff2d20;"></i> Laravel</span>
+            <span class="experience-skill-tag"><i class="fas fa-database"></i> MySQL</span>
+            <span class="experience-skill-tag"><i class="fas fa-plug"></i> REST APIs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASP.NET -->
+      <div class="experience-timeline-item left-side animate delay-4">
+        <span class="experience-timeline-dot"></span>
+        <div class="experience-timeline-card">
+          <div class="experience-timeline-card-header">
+            <h3 data-lang="aspdotnet-dev">ASP.NET Developer & Project Manager</h3>
+            <span class="experience-timeline-date muted">2022 - 2023</span>
+          </div>
+          <p>Project management, .NET backend, database integration, team coordination.</p>
+          <div class="experience-timeline-tags">
+            <span class="experience-skill-tag"><i class="fab fa-dotnet" style="color: #512bd4;"></i> ASP.NET</span>
+            <span class="experience-skill-tag"><i class="fas fa-code" style="color: #563d7c;"></i> C#</span>
+            <span class="experience-skill-tag"><i class="fas fa-server" style="color: #4169e1;"></i> SQL Server</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-text">
+        <p data-lang="copyright">&copy; 2024 Mohammad Ahmad Alsharawi. All rights reserved.</p>
+      </div>
+      <div class="footer-icons">
+        <a href="mailto:eng.mohammadalsharawi@gmail.com" class="footer-icon" aria-label="Email Mohammad Alsharawi" title="Send Email" rel="noopener">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/963939795817" class="footer-icon" aria-label="WhatsApp Mohammad Alsharawi" title="WhatsApp Chat" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/MohammadAlsharawi" class="footer-icon" aria-label="GitHub Mohammad Alsharawi" title="GitHub Profile" target="_blank" rel="noopener">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://gitlab.com/MohammedAlsharawi" class="footer-icon" aria-label="GitLab Mohammad Alsharawi" title="GitLab Profile" target="_blank" rel="noopener">
+          <i class="fab fa-gitlab" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mohammad-alsharawi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="footer-icon" aria-label="LinkedIn Mohammad Alsharawi" title="LinkedIn Profile" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/language.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/components.js"></script>
+</body>
+</html>

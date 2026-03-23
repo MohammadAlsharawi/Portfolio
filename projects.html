@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Mohammad Alsharawi</title>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <style>
+    .project-img {
+      width: 100%;
+      height: 320px;
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      transition: transform 0.45s ease, box-shadow 0.45s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+    }
+
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* أهم سطر */
+      display: block;
+    }
+    .projects-timeline {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto 8rem;
+      padding: 0 1.5rem;
+    }
+
+    .projects-timeline::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), rgba(0, 212, 255, 0.08));
+      box-shadow: 0 0 18px rgba(0, 212, 255, 0.18);
+      z-index: 0;
+    }
+
+    .project-timeline-item {
+      position: relative;
+      margin-bottom: 4rem;
+      padding-left: 5.5rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .project-timeline-item.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 12px;
+      top: 2rem;
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border: 4px solid var(--bg-primary);
+      border-radius: 50%;
+      z-index: 2;
+      box-shadow: 0 0 22px rgba(0, 212, 255, 0.45);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-timeline-item:hover .timeline-dot {
+      transform: scale(1.18);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
+    }
+
+    .project-content {
+      position: relative;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      padding: 2rem;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .project-content::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), transparent 40%, rgba(255, 255, 255, 0.02));
+      pointer-events: none;
+    }
+
+    .project-name {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.03em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-name::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      margin-top: 0.7rem;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 99px;
+    }
+
+    .project-img {
+      height: 320px;
+      width: 100%;
+      border-radius: 22px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      transition: transform 0.45s ease, box-shadow 0.45s ease;
+      position: relative;
+    }
+
+    .project-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.45));
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .project-timeline-item:hover .project-img {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    .project-timeline-item:hover .project-img::after {
+      opacity: 1;
+    }
+
+    .buttons-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .buttons-row .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.95rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .buttons-row .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: rgba(5, 10, 20, 0.72);
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+    }
+
+    .modal-content {
+      position: relative;
+      width: min(760px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(16, 20, 31, 0.96), rgba(10, 14, 24, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-close i {
+      font-size: 1rem;
+    }
+
+    .modal-close:hover {
+      transform: rotate(90deg) scale(1.05);
+      background: rgba(0, 212, 255, 0.12);
+      border-color: rgba(0, 212, 255, 0.35);
+      box-shadow: 0 10px 24px rgba(0, 212, 255, 0.18);
+    }
+
+    .modal-close:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .project-detail-content h3 {
+      margin: 0 0 1rem;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .project-modal-grid {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .project-modal-block {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 1.25rem 1.4rem;
+    }
+
+    .project-modal-block h4 {
+      margin: 0 0 0.7rem;
+      font-size: 0.95rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .project-modal-block p,
+    .project-modal-block ul {
+      margin: 0;
+      line-height: 1.9;
+      color: var(--text-secondary);
+    }
+
+    .project-role-list {
+      padding-left: 1.2rem;
+    }
+
+    .project-role-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    @media (max-width: 768px) {
+      .projects-timeline {
+        padding: 0 1rem;
+      }
+
+      .projects-timeline::before {
+        left: 18px;
+      }
+
+      .project-timeline-item {
+        padding-left: 3.8rem;
+        margin-bottom: 3rem;
+      }
+
+      .timeline-dot {
+        left: 6px;
+        width: 22px;
+        height: 22px;
+      }
+
+      .project-content {
+        padding: 1.25rem;
+        border-radius: 22px;
+      }
+
+      .project-name {
+        font-size: 1.55rem;
+      }
+
+      .project-img {
+        height: 240px;
+      }
+
+      .buttons-row {
+        flex-direction: column;
+      }
+
+      .buttons-row .btn {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .modal-content {
+        padding: 1.4rem;
+        border-radius: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo" aria-label="Home">
+        <i class="fas fa-brain" aria-hidden="true"></i> Mohammad Alsharawi
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="index.html" class="nav-link" data-lang="nav-home" aria-label="Home"></a></li>
+        <li><a href="about.html" class="nav-link" data-lang="nav-about" aria-label="About"></a></li>
+        <li><a href="skills.html" class="nav-link" data-lang="nav-skills" aria-label="Skills"></a></li>
+        <li><a href="projects.html" class="nav-link active" data-lang="nav-projects" aria-label="Projects"></a></li>
+        <li><a href="experience.html" class="nav-link " data-lang="nav-experience" aria-label="Experience"></a></li>
+        <li><a href="education.html" class="nav-link" data-lang="nav-education" aria-label="Education"></a></li>
+        <li><a href="certifications.html" class="nav-link" data-lang="nav-certifications" aria-label="Certifications"></a></li>
+        <li><a href="services.html" class="nav-link" data-lang="nav-services" aria-label="Services"></a></li>
+        <li><a href="volunteers.html" class="nav-link">Volunteering</a></li>
+        <li><a href="contact.html" class="nav-link" data-lang="nav-contact" aria-label="Contact"></a></li>
+      </ul>
+      <div class="hamburger" aria-label="Toggle Menu" aria-expanded="false" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Projects</h1>
+      <p>Selected work presented in a refined vertical timeline</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="projects-timeline">
+      <div class="project-timeline-item" data-scroll-reveal>
+        <div class="timeline-dot"></div>
+        <div class="project-content">
+          <h2 class="project-name">Rifad</h2>
+          <div class="project-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <img src="assets/images/rifad.jpg" alt="Rifad">
+          </div>
+          <div class="buttons-row">
+            <button class="btn btn-primary" onclick="openModal('projectModal', 'rifad-details')">
+              <i class="fas fa-info-circle"></i>
+              <span>Details</span>
+            </button>
+            <a href="https://www.rifad.org/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-globe"></i>
+              <span>Live</span>
+            </a>
+            <a href="https://github.com/MohammadAlsharawi/Rifad_organization.git" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-timeline-item" data-scroll-reveal>
+        <div class="timeline-dot"></div>
+        <div class="project-content">
+          <h2 class="project-name">All New Tech UK</h2>
+          <div class="project-img" style="background: linear-gradient(135deg, #000000 0%, #000000 100%);">
+            <img src="assets/images/allnewtech.jpg" alt="All New Tech">
+          </div>
+          <div class="buttons-row">
+            <button class="btn btn-primary" onclick="openModal('projectModal', 'allnewtech-details')">
+              <i class="fas fa-info-circle"></i>
+              <span>Details</span>
+            </button>
+            <a href="https://www.allnewtech.co.uk/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-globe"></i>
+              <span>Live</span>
+            </a>
+            <a href="https://github.com/MohammadAlsharawi/All-New-Tech-UK.git" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="projectModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('projectModal')" aria-label="Close modal">
+        <i class="fas fa-xmark"></i>
+      </button>
+
+      <div id="rifad-details" class="project-detail-content" style="display: none;">
+        <h3>Rifad</h3>
+        <div class="project-modal-grid">
+          <div class="project-modal-block">
+            <h4>Project Description</h4>
+            <p>
+              Rifad is a non-governmental, nonprofit educational foundation dedicated to empowering teachers,
+              developing students, and rebuilding the future of education in Syria through innovative programs,
+              expert training, and community-driven initiatives.
+            </p>
+          </div>
+          <div class="project-modal-block">
+            <h4>My Role</h4>
+            <ul class="project-role-list">
+              <li>Project Management</li>
+              <li>Laravel API Development</li>
+              <li>Admin Dashboard Development using Filament</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="allnewtech-details" class="project-detail-content" style="display: none;">
+        <h3>All New Tech UK</h3>
+        <div class="project-modal-grid">
+          <div class="project-modal-block">
+            <h4>Project Description</h4>
+            <p>
+              All New Tech is a UK-based security and technology solutions provider specialising in CCTV systems,
+              alarm systems, access control, and smart automation for residential and commercial properties,
+              with a strong focus on reliability, performance, and peace of mind.
+            </p>
+          </div>
+          <div class="project-modal-block">
+            <h4>My Role</h4>
+            <ul class="project-role-list">
+              <li>Project Management</li>
+              <li>Laravel API Development</li>
+              <li>Admin Dashboard Development using Filament</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-text">
+        <p data-lang="copyright">&copy; 2024 Mohammad Ahmad Alsharawi. All rights reserved.</p>
+      </div>
+      <div class="footer-icons">
+        <a href="mailto:eng.mohammadalsharawi@gmail.com" class="footer-icon" aria-label="Email Mohammad Alsharawi" title="Send Email" rel="noopener">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/963939795817" class="footer-icon" aria-label="WhatsApp Mohammad Alsharawi" title="WhatsApp Chat" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/MohammadAlsharawi" class="footer-icon" aria-label="GitHub Mohammad Alsharawi" title="GitHub Profile" target="_blank" rel="noopener">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://gitlab.com/MohammedAlsharawi" class="footer-icon" aria-label="GitLab Mohammad Alsharawi" title="GitLab Profile" target="_blank" rel="noopener">
+          <i class="fab fa-gitlab" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mohammad-alsharawi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="footer-icon" aria-label="LinkedIn Mohammad Alsharawi" title="LinkedIn Profile" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('[data-scroll-reveal]').forEach((el) => observer.observe(el));
+
+    function openModal(modalId, detailId) {
+      const modal = document.getElementById(modalId);
+      if (!modal) return;
+
+      document.querySelectorAll('.project-detail-content').forEach((section) => {
+        section.style.display = 'none';
+      });
+
+      const detail = document.getElementById(detailId);
+      if (detail) {
+        detail.style.display = 'block';
+      }
+
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (!modal) return;
+
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    window.addEventListener('click', function (event) {
+      const modal = document.getElementById('projectModal');
+      if (event.target === modal) {
+        closeModal('projectModal');
+      }
+    });
+
+    window.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeModal('projectModal');
+      }
+    });
+  </script>
+
+  <script src="assets/js/language.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

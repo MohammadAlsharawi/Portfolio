@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  .profile-img.profile-photo {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: float 6s ease-in-out infinite;
+  padding: 5px;
+  background: linear-gradient(135deg, var(--accent), rgba(255,255,255,0.15), var(--accent-dark));
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.3),
+    0 0 35px rgba(0, 212, 255, 0.18);
+}
+
+.profile-img.profile-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: #0b1220;
+}
+</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammad Alsharawi | AI Engineer & Backend Developer</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-brain" aria-hidden="true"></i> Mohammad Alsharawi
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="index.html" class="nav-link active" data-lang="nav-home" aria-label="Home"></a></li>
+        <li><a href="about.html" class="nav-link" data-lang="nav-about" aria-label="About"></a></li>
+        <li><a href="skills.html" class="nav-link" data-lang="nav-skills" aria-label="Skills"></a></li>
+        <li><a href="projects.html" class="nav-link" data-lang="nav-projects" aria-label="Projects"></a></li>
+        <li><a href="experience.html" class="nav-link" data-lang="nav-experience" aria-label="Experience"></a></li>
+        <li><a href="education.html" class="nav-link" data-lang="nav-education" aria-label="Education"></a></li>
+        <li><a href="certifications.html" class="nav-link" data-lang="nav-certifications" aria-label="Certifications"></a></li>
+        <li><a href="services.html" class="nav-link" data-lang="nav-services" aria-label="Services"></a></li>
+        <li><a href="volunteers.html" class="nav-link">Volunteering</a></li>
+        <li><a href="contact.html" class="nav-link" data-lang="nav-contact" aria-label="Contact"></a></li>
+      </ul>
+      <div class="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero animate" id="home">
+    <div class="hero-content">
+      <h1 data-lang="hero-name">Mohammad Ahmad Alsharawi</h1>
+      <div class="subtitle" data-lang="hero-subtitle">AI Engineer & Backend Developer</div>
+      <div class="academic-subtitle" data-lang="hero-academic">Informatics and Communications Engineering - Artificial Intelligence Major</div>
+      <p data-lang="hero-desc">Passionate AI Engineer and Backend Developer specializing in Laravel advanced systems, Machine Learning, Deep Learning, LLM applications. Building intelligent production-ready systems that scale.</p>
+      <div class="cta-buttons">
+        <a href="projects.html" class="btn btn-primary">
+          <i class="fas fa-eye"></i> <span data-lang="view-projects">View Projects</span>
+        </a>
+        <a href="#" class="btn btn-secondary" onclick="location.href='CV/Mohammad_Ahmed_Alsharawi.pdf'">
+          <i class="fas fa-download"></i> <span data-lang="download-cv">Download CV</span>
+        </a>
+        <a href="contact.html" class="btn btn-primary">
+          <i class="fas fa-envelope"></i> <span data-lang="contact-me">Contact Me</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="profile-img profile-photo">
+        <img src="assets/images/profile.jpg" alt="Mohammad Alsharawi">
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="section animate" id="highlights">
+    <h2 class="section-title">Core Expertise</h2>
+    <div class="grid">
+      <div class="card">
+        <i class="fas fa-robot"></i>
+        <h3>AI Solutions</h3>
+        <p>ML/DL/LLM production systems</p>
+      </div>
+      <div class="card">
+        <i class="fab fa-laravel"></i>
+        <h3>Laravel Backend</h3>
+        <p>Scalable APIs & dashboards</p>
+      </div>
+      <!-- More highlights -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-text">
+        <p data-lang="copyright">&copy; 2024 Mohammad Ahmad Alsharawi. All rights reserved.</p>
+      </div>
+      <div class="footer-icons">
+        <a href="mailto:eng.mohammadalsharawi@gmail.com" class="footer-icon" aria-label="Email Mohammad Alsharawi" title="Send Email" rel="noopener">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/963939795817" class="footer-icon" aria-label="WhatsApp Mohammad Alsharawi" title="WhatsApp Chat" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/MohammadAlsharawi" class="footer-icon" aria-label="GitHub Mohammad Alsharawi" title="GitHub Profile" target="_blank" rel="noopener">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://gitlab.com/MohammedAlsharawi" class="footer-icon" aria-label="GitLab Mohammad Alsharawi" title="GitLab Profile" target="_blank" rel="noopener">
+          <i class="fab fa-gitlab" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mohammad-alsharawi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="footer-icon" aria-label="LinkedIn Mohammad Alsharawi" title="LinkedIn Profile" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/language.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/components.js"></script>
+</body>
+</html>
+
