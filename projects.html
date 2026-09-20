@@ -13,25 +13,29 @@
   <style>
     .project-img {
       width: 100%;
-      height: 320px;
+      height: auto;
+      aspect-ratio: 16 / 6;
       border-radius: 22px;
       overflow: hidden;
       position: relative;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
-      transition: transform 0.45s ease, box-shadow 0.45s ease;
+      margin-bottom: 1.5rem;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0f172a;
-    }
 
-    .project-img img {
+      background: #06154d;
+
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      transition: transform 0.45s ease, box-shadow 0.45s ease;
+  }
+
+  .project-img img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       display: block;
-      object-position: center;
-    }
+  }
     .projects-timeline {
       position: relative;
       max-width: 1100px;
@@ -417,8 +421,8 @@
       <div class="project-timeline-item" data-scroll-reveal>
         <div class="timeline-dot"></div>
         <div class="project-content">
-          <h2 class="project-name">Digital Art Exhibition– Ministry of Culture</h2>
-          <div class="project-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+          <h2 class="project-name">Digital Art Exhibition – Ministry of Culture</h2>
+          <div class="project-img" >
             <img src="assets/images/DAE.png" alt="DAE">
           </div>
           <div class="buttons-row">
