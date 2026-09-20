@@ -10,7 +10,7 @@ function initEmailJS() {
   const script = document.createElement('script');
   script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
   script.onload = () => {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
+    if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') emailjs.init(EMAILJS_PUBLIC_KEY);
   };
   document.head.appendChild(script);
 }
@@ -41,7 +41,7 @@ function initContactForm() {
     btn.disabled = true;
 
     try {
-      if (emailjs) {
+      if (typeof emailjs !== 'undefined' && EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID' && EMAILJS_TEMPLATE_ID !== 'YOUR_TEMPLATE_ID' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
         const response = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
           from_name: name,
           from_email: email,
