@@ -28,8 +28,9 @@
     .project-img img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* أهم سطر */
+      object-fit: contain;
       display: block;
+      object-position: center;
     }
     .projects-timeline {
       position: relative;
@@ -412,8 +413,7 @@
           </div>
         </div>
       </div>
-    </div>
-    
+
       <div class="project-timeline-item" data-scroll-reveal>
         <div class="timeline-dot"></div>
         <div class="project-content">
@@ -437,7 +437,7 @@
           </div>
         </div>
       </div>
-
+    </div>
   </section>
 
   
@@ -490,10 +490,9 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <div id="DAE-details" class="project-detail-content" style="display: none;">
-        <h3></h3>
+      <div id="DAE-details" class="project-detail-content" style="display: none;">
+        <h3>Digital Art Exhibition – Ministry of Culture</h3>
         <div class="project-modal-grid">
           <div class="project-modal-block">
             <h4>Project Description</h4>
@@ -514,6 +513,7 @@
           </div>
         </div>
       </div>
+    </div>
   </div>
 
   <!-- Footer -->
