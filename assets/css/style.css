@@ -749,3 +749,29 @@ button { color: inherit; }
 /* Graceful fallback when optional local portfolio media is not present. */
 img.media-missing { display: none !important; }
 .profile-img.profile-photo:has(img.media-missing)::after { content: 'MA'; font-size: clamp(4rem, 9vw, 6.5rem); font-weight: 900; color: var(--bg-primary); }
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbar-profile-img {
+    width: 58px;
+    height: 58px;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 50%;
+
+    border: 2px solid var(--accent);
+
+    flex-shrink: 0;
+
+    transition: 0.3s ease;
+}
+
+.logo:hover .navbar-profile-img {
+    transform: scale(1.05);
+}
