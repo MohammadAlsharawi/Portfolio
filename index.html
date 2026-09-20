@@ -1,138 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
-<style>
-  .profile-img.profile-photo {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  overflow: hidden;
-  animation: float 6s ease-in-out infinite;
-  padding: 5px;
-  background: linear-gradient(135deg, var(--accent), rgba(255,255,255,0.15), var(--accent-dark));
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.3),
-    0 0 35px rgba(0, 212, 255, 0.18);
-}
-
-.profile-img.profile-photo img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  background: #0b1220;
-}
-</style>
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohammad Alsharawi | AI Engineer & Backend Developer</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Mohammad Alsharawi | Portfolio</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <i class="fas fa-brain" aria-hidden="true"></i> Mohammad Alsharawi
-      </a>
-      <ul class="navbar-nav">
-        <li><a href="index.html" class="nav-link active" data-lang="nav-home" aria-label="Home"></a></li>
-        <li><a href="about.html" class="nav-link" data-lang="nav-about" aria-label="About"></a></li>
-        <li><a href="skills.html" class="nav-link" data-lang="nav-skills" aria-label="Skills"></a></li>
-        <li><a href="projects.html" class="nav-link" data-lang="nav-projects" aria-label="Projects"></a></li>
-        <li><a href="experience.html" class="nav-link" data-lang="nav-experience" aria-label="Experience"></a></li>
-        <li><a href="education.html" class="nav-link" data-lang="nav-education" aria-label="Education"></a></li>
-        <li><a href="certifications.html" class="nav-link" data-lang="nav-certifications" aria-label="Certifications"></a></li>
-        <li><a href="services.html" class="nav-link" data-lang="nav-services" aria-label="Services"></a></li>
-        <li><a href="volunteers.html" class="nav-link">Volunteering</a></li>
-        <li><a href="contact.html" class="nav-link" data-lang="nav-contact" aria-label="Contact"></a></li>
+  <nav class="navbar glass-panel">
+    <div class="container nav-container">
+      <a href="#home" class="logo">Mohammad<span>.AI</span></a>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" data-lang="nav-home">Home</a></li>
+        <li><a href="#about" data-lang="nav-about">About</a></li>
+        <li><a href="#skills" data-lang="nav-skills">Skills</a></li>
+        <li><a href="#projects" data-lang="nav-projects">Projects</a></li>
+        <li><a href="#experience" data-lang="nav-experience">Experience</a></li>
+        <li><a href="#education" data-lang="nav-education">Education</a></li>
+        <li><a href="#contact" data-lang="nav-contact">Contact</a></li>
       </ul>
-      <div class="hamburger" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline language-switcher" onclick="switchLanguage()">العربية</button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero animate" id="home">
-    <div class="hero-content">
-      <h1 data-lang="hero-name">Mohammad Ahmad Alsharawi</h1>
-      <div class="subtitle" data-lang="hero-subtitle">AI Engineer & Backend Developer</div>
-      <div class="academic-subtitle" data-lang="hero-academic">Informatics and Communications Engineering - Artificial Intelligence Major</div>
-      <p data-lang="hero-desc">Passionate AI Engineer and Backend Developer specializing in Laravel advanced systems, Machine Learning, Deep Learning, LLM applications. Building intelligent production-ready systems that scale.</p>
-      <div class="cta-buttons">
-        <a href="projects.html" class="btn btn-primary">
-          <i class="fas fa-eye"></i> <span data-lang="view-projects">View Projects</span>
-        </a>
-        <a href="#" class="btn btn-secondary" onclick="location.href='CV/Mohammad_Ahmed_Alsharawi.pdf'">
-          <i class="fas fa-download"></i> <span data-lang="download-cv">Download CV</span>
-        </a>
-        <a href="contact.html" class="btn btn-primary">
-          <i class="fas fa-envelope"></i> <span data-lang="contact-me">Contact Me</span>
-        </a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <div class="profile-img profile-photo">
-        <img src="assets/images/profile.jpg" alt="Mohammad Alsharawi">
+  <!-- Hero Section -->
+  <section id="home" class="hero-section section">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title" data-lang="hero-name">Mohammad Ahmad Alsharawi</h1>
+        <h2 class="hero-subtitle" data-lang="hero-subtitle">AI Engineer & Backend Developer</h2>
+        <p class="hero-academic" data-lang="hero-academic">Informatics & Communications Engineering - AI Major</p>
+        <p class="hero-desc" data-lang="hero-desc">
+          Passionate AI Engineer and Backend Developer specializing in Laravel advanced systems, Machine Learning, Deep Learning, and LLM applications.
+        </p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-primary" data-lang="view-projects">View Projects</a>
+          <a href="#contact" class="btn btn-outline" data-lang="contact-me">Contact Me</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Highlights -->
-  <section class="section animate" id="highlights">
-    <h2 class="section-title">Core Expertise</h2>
-    <div class="grid">
-      <div class="card">
-        <i class="fas fa-robot"></i>
-        <h3>AI Solutions</h3>
-        <p>ML/DL/LLM production systems</p>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title" data-lang="about-me">About Me</h2>
+      <div class="glass-panel about-card">
+        <p data-lang="hero-desc">
+          Passionate AI Engineer and Backend Developer specializing in Laravel advanced systems, Machine Learning, Deep Learning, and LLM applications. Building scalable, production-ready solutions.
+        </p>
       </div>
-      <div class="card">
-        <i class="fab fa-laravel"></i>
-        <h3>Laravel Backend</h3>
-        <p>Scalable APIs & dashboards</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <h2 class="section-title" data-lang="my-skills">Skills & Technical Stack</h2>
+      <div class="grid-3">
+        <div class="glass-panel skill-card">
+          <i class="fas fa-code skill-icon"></i>
+          <h3 data-lang="programming-languages">Programming Languages</h3>
+          <div class="progress-item">
+            <span>Python / PHP / C++</span>
+            <div class="progress-bg"><div class="progress-bar" data-progress="90%"></div></div>
+          </div>
+        </div>
+
+        <div class="glass-panel skill-card">
+          <i class="fas fa-brain skill-icon"></i>
+          <h3 data-lang="ai-ml-data">AI / ML / Data Science</h3>
+          <div class="progress-item">
+            <span>PyTorch / TensorFlow / LLMs</span>
+            <div class="progress-bg"><div class="progress-bar" data-progress="85%"></div></div>
+          </div>
+        </div>
+
+        <div class="glass-panel skill-card">
+          <i class="fas fa-server skill-icon"></i>
+          <h3 data-lang="backend-systems">Backend Systems</h3>
+          <div class="progress-item">
+            <span>Laravel / REST APIs / MySQL</span>
+            <div class="progress-bg"><div class="progress-bar" data-progress="92%"></div></div>
+          </div>
+        </div>
       </div>
-      <!-- More highlights -->
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title" data-lang="my-projects">Featured Projects</h2>
+      <div class="grid-2">
+        <div class="glass-panel project-card">
+          <h3 data-lang="rifad-title">Rifad Foundation</h3>
+          <p class="project-tag" data-lang="rifad-short">Nonprofit Educational Platform for Syria</p>
+          <p data-lang="rifad-desc">Educational foundation dedicated to empowering teachers and rebuilding education.</p>
+          <button class="btn btn-outline btn-sm" onclick="openModal('project-modal', 'modal-rifad-details')">
+            <i class="fas fa-info-circle"></i> Details
+          </button>
+        </div>
+
+        <div class="glass-panel project-card">
+          <h3 data-lang="allnewtech-title">All New Tech UK</h3>
+          <p class="project-tag" data-lang="allnewtech-short">UK Security & Smart Automation Solutions</p>
+          <p data-lang="allnewtech-desc">Security provider specializing in CCTV, access control, and smart automation.</p>
+          <button class="btn btn-outline btn-sm" onclick="openModal('project-modal', 'modal-tech-details')">
+            <i class="fas fa-info-circle"></i> Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education Section -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <h2 class="section-title" data-lang="my-experience">Work Experience</h2>
+          <div class="glass-panel timeline-card">
+            <h3 data-lang="ai-engineer">AI Engineer</h3>
+            <span class="timeline-date" data-lang="experience-present">2025 – Present</span>
+            <p data-lang="backend-developer">Backend Developer & AI Specialist</p>
+          </div>
+        </div>
+        <div id="education">
+          <h2 class="section-title" data-lang="my-education">Academic Education</h2>
+          <div class="glass-panel timeline-card">
+            <h3 data-lang="aiu-university">Arab International University (AIU)</h3>
+            <span class="timeline-date" data-lang="grad-2027">Expected Graduation: July 2027</span>
+            <p data-lang="major-ai">Major: Artificial Intelligence</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title" data-lang="get-in-touch">Get In Touch</h2>
+      <div class="glass-panel contact-wrapper">
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" class="form-input" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="subject" class="form-input" placeholder="Subject" required>
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="5" class="form-input" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="fas fa-paper-plane"></i> <span data-lang="send-message">Send Message</span>
+          </button>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-text">
-        <p data-lang="copyright">&copy; 2024 Mohammad Ahmad Alsharawi. All rights reserved.</p>
-      </div>
-      <div class="footer-icons">
-        <a href="mailto:eng.mohammadalsharawi@gmail.com" class="footer-icon" aria-label="Email Mohammad Alsharawi" title="Send Email" rel="noopener">
-          <i class="fas fa-envelope" aria-hidden="true"></i>
-        </a>
-        <a href="https://wa.me/963939795817" class="footer-icon" aria-label="WhatsApp Mohammad Alsharawi" title="WhatsApp Chat" target="_blank" rel="noopener">
-          <i class="fab fa-whatsapp" aria-hidden="true"></i>
-        </a>
-        <a href="https://github.com/MohammadAlsharawi" class="footer-icon" aria-label="GitHub Mohammad Alsharawi" title="GitHub Profile" target="_blank" rel="noopener">
-          <i class="fab fa-github" aria-hidden="true"></i>
-        </a>
-        <a href="https://gitlab.com/MohammedAlsharawi" class="footer-icon" aria-label="GitLab Mohammad Alsharawi" title="GitLab Profile" target="_blank" rel="noopener">
-          <i class="fab fa-gitlab" aria-hidden="true"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/mohammad-alsharawi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="footer-icon" aria-label="LinkedIn Mohammad Alsharawi" title="LinkedIn Profile" target="_blank" rel="noopener">
-          <i class="fab fa-linkedin" aria-hidden="true"></i>
-        </a>
-      </div>
+    <div class="container">
+      <p data-lang="copyright">© 2026 Mohammad Ahmad Alsharawi. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="assets/js/language.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/components.js"></script>
+  <!-- Floating Buttons -->
+  <div class="floating-actions">
+    <a href="https://wa.me/963939795817" target="_blank" class="float-btn wa" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#home" class="float-btn top" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+
+  <!-- Dynamic Modal -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content glass-panel">
+      <button class="close-modal">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Modal Details Templates -->
+  <div id="modal-rifad-details" style="display: none;">
+    <h3 style="margin-bottom: 10px; color: var(--primary-color);">Rifad Foundation</h3>
+    <p style="margin-bottom: 15px;">Full API infrastructure and management panel developed using Laravel and Filament Framework.</p>
+    <p><strong>Tech Stack:</strong> Laravel, Filament Framework, MySQL, REST APIs</p>
+  </div>
+
+  <div id="modal-tech-details" style="display: none;">
+    <h3 style="margin-bottom: 10px; color: var(--primary-color);">All New Tech UK</h3>
+    <p style="margin-bottom: 15px;">Automated system setup for managing IoT security devices and client scheduling.</p>
+    <p><strong>Tech Stack:</strong> Laravel, MySQL, Microservices</p>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="language.js"></script>
+  <script src="components.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
-
