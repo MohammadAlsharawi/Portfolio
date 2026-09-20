@@ -1,182 +1,130 @@
-// Enhanced Components v2: Modals, Carousel, EmailJS Form, Progress
+// Shared portfolio components: contact form, modals, carousels and progress bars.
+// Add real EmailJS IDs below only if EmailJS is configured for this site.
+const EMAILJS_CONFIG = {
+  serviceId: '',
+  templateId: '',
+  publicKey: ''
+};
 
-// EmailJS Setup - Replace with your keys (sign up at emailjs.com free)
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'; // e.g. 'service_portfolio'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // e.g. 'template_contact'
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // e.g. 'user_abc123'
-
-function initEmailJS() {
-  // Load EmailJS CDN
-  const script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-  script.onload = () => {
-    if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') emailjs.init(EMAILJS_PUBLIC_KEY);
-  };
-  document.head.appendChild(script);
+function hasEmailJSConfig() {
+  return Boolean(EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.templateId && EMAILJS_CONFIG.publicKey);
 }
 
-// Contact Form with EmailJS + Validation
+function showFormMessage(message, type = 'success') {
+  const alert = document.createElement('div');
+  alert.className = `form-message ${type}`;
+  alert.setAttribute('role', 'status');
+  alert.textContent = message;
+  document.body.appendChild(alert);
+  window.setTimeout(() => alert.remove(), 4000);
+}
+
 function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    const originalText = btn.innerHTML;
-    
-    const formData = new FormData(form);
-    const name = formData.get('name').trim();
-    const email = formData.get('email').trim();
-    const subject = formData.get('subject')?.trim() || 'Portfolio Contact';
-    const message = formData.get('message').trim();
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    const button = form.querySelector('button[type="submit"]');
+    const original = button?.innerHTML || '';
+    const data = new FormData(form);
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const subject = String(data.get('subject') || 'Portfolio Contact').trim();
+    const message = String(data.get('message') || '').trim();
+    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    // Client validation
-    if (!name || !email || !message || !/^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$/.test(email)) {
-      showFormMessage('Please fill all fields correctly.', 'error');
+    if (!name || !validEmail || !message) {
+      showFormMessage('Please fill in your name, a valid email, and your message.', 'error');
       return;
     }
 
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    btn.disabled = true;
+    if (button) {
+      button.disabled = true;
+      button.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending...';
+    }
 
     try {
-      if (typeof emailjs !== 'undefined' && EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID' && EMAILJS_TEMPLATE_ID !== 'YOUR_TEMPLATE_ID' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
-        const response = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-          from_name: name,
-          from_email: email,
-          subject: subject,
-          message: message
+      if (hasEmailJSConfig() && window.emailjs) {
+        window.emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+        await window.emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
+          from_name: name, from_email: email, subject, message
         });
-        showFormMessage('Thank you! Message sent successfully.', 'success');
         form.reset();
+        showFormMessage('Thank you! Your message was sent successfully.', 'success');
       } else {
-        // Fallback mailto
-        const mailto = `mailto:eng.mohammadalsharawi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`${message}\\n\\nFrom: ${name} (${email})`)}`;
-        window.location.href = mailto;
+        const body = `${message}\n\nFrom: ${name} (${email})`;
+        window.location.href = `mailto:eng.mohammadalsharawi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       }
     } catch (error) {
-      console.error('EmailJS error:', error);
-      showFormMessage('Failed to send. Please try email directly.', 'error');
+      console.error('Contact form error:', error);
+      showFormMessage('The form could not send the message. Please use the email link instead.', 'error');
     } finally {
-      btn.innerHTML = originalText;
-      btn.disabled = false;
+      if (button) { button.disabled = false; button.innerHTML = original; }
     }
   });
 }
 
-function showFormMessage(msg, type) {
-  const alert = document.createElement('div');
-  alert.className = `form-message ${type}`;
-  alert.style.cssText = 'position: fixed; top: 20px; right: 20px; padding: 1.5rem 2rem; border-radius: 12px; color: white; font-weight: 600; z-index: 3000; transform: translateX(400px); transition: transform 0.4s ease; box-shadow: 0 10px 40px rgba(0,0,0,0.3);';
-  alert.textContent = msg;
-  document.body.appendChild(alert);
-  
-  setTimeout(() => alert.style.transform = 'translateX(0)', 100);
-  setTimeout(() => {
-    alert.style.transform = 'translateX(400px)';
-    setTimeout(() => alert.remove(), 400);
-  }, 4000);
-}
-
-// Modals
 function openModal(modalId, contentId) {
   const modal = document.getElementById(modalId);
-  const content = document.getElementById(contentId);
-  if (modal && content) {
-    modal.querySelector('.modal-content #modal-body').innerHTML = content.innerHTML;
-    modal.classList.add('active');
-  }
-  document.body.style.overflow = 'hidden';
+  const source = document.getElementById(contentId);
+  const body = modal?.querySelector('#modal-body');
+  if (!modal || !source || !body) return;
+  body.innerHTML = source.innerHTML;
+  modal.classList.add('active');
+  document.body.classList.add('no-scroll');
 }
-
 function closeModal(modalId) {
   document.getElementById(modalId)?.classList.remove('active');
-  document.body.style.overflow = '';
+  document.body.classList.remove('no-scroll');
 }
 
-// Testimonial Carousel
 class TestimonialCarousel {
   constructor(selector) {
-    this.carousel = document.querySelector(selector);
+    this.carousel = typeof selector === 'string' ? document.querySelector(selector) : selector;
+    if (!this.carousel) return;
     this.track = this.carousel.querySelector('.carousel-track');
     this.cards = [...this.carousel.querySelectorAll('.testimonial-card')];
     this.currentIndex = 0;
-    this.autoPlayInterval = null;
-    this.init();
+    this.timer = null;
+    if (!this.track || this.cards.length < 2) return;
+    this.update();
+    this.start();
+    this.carousel.addEventListener('mouseenter', () => this.stop());
+    this.carousel.addEventListener('mouseleave', () => this.start());
   }
-
-  init() {
-    this.updateCarousel();
-    this.startAutoPlay();
-    
-    // Pause on hover
-    this.carousel.addEventListener('mouseenter', () => this.pauseAutoPlay());
-    this.carousel.addEventListener('mouseleave', () => this.startAutoPlay());
-  }
-
-  updateCarousel() {
-    this.track.style.transform = `translateX(-${this.currentIndex * 100}%)`;
-  }
-
-  next() {
-    this.currentIndex = (this.currentIndex + 1) % this.cards.length;
-    this.updateCarousel();
-  }
-
-  startAutoPlay() {
-    this.autoPlayInterval = setInterval(() => this.next(), 6000);
-  }
-
-  pauseAutoPlay() {
-    clearInterval(this.autoPlayInterval);
-  }
+  update() { this.track.style.transform = `translateX(-${this.currentIndex * 100}%)`; }
+  next() { this.currentIndex = (this.currentIndex + 1) % this.cards.length; this.update(); }
+  start() { this.stop(); this.timer = window.setInterval(() => this.next(), 6000); }
+  stop() { if (this.timer) window.clearInterval(this.timer); }
 }
 
-// Progress Bars
-function animateProgressBars() {
-  document.querySelectorAll('.progress-bar').forEach((bar, index) => {
-    setTimeout(() => {
-      const width = bar.dataset.progress;
-      bar.style.width = width;
-    }, index * 200);
+function animateProgressBars(root = document) {
+  root.querySelectorAll('.progress-bar[data-progress]').forEach(bar => {
+    const value = bar.dataset.progress || '0%';
+    bar.style.width = value.endsWith('%') ? value : `${value}%`;
   });
 }
 
-// Init on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-  // Modals
-  document.querySelectorAll('.modal').forEach(modal => {
-    modal.addEventListener('click', e => {
-      if (e.target === modal) closeModal(modal.id);
-    });
-  });
-  document.querySelectorAll('.close-modal').forEach(btn => {
-    btn.addEventListener('click', () => closeModal(btn.closest('.modal').id));
-  });
-
-  // Progress observer
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateProgressBars();
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  
-  document.querySelectorAll('.skills-section, [data-progress]').forEach(el => observer.observe(el));
-
-  // Contact forms
   initContactForm();
-  initEmailJS();
-
-  // Carousel
+  document.querySelectorAll('.modal').forEach(modal => modal.addEventListener('click', event => {
+    if (event.target === modal) closeModal(modal.id);
+  }));
+  document.querySelectorAll('.close-modal').forEach(button => button.addEventListener('click', () => closeModal(button.closest('.modal')?.id)));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') document.querySelectorAll('.modal.active').forEach(modal => closeModal(modal.id));
+  });
   document.querySelectorAll('.carousel').forEach(el => new TestimonialCarousel(el));
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { animateProgressBars(entry.target); observer.unobserve(entry.target); }
+    }), { threshold: .1 });
+    document.querySelectorAll('.skills-section, [data-progress]').forEach(el => observer.observe(el));
+  } else animateProgressBars();
 });
 
-// Global API
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.TestimonialCarousel = TestimonialCarousel;
-window.initContactForm = initContactForm;

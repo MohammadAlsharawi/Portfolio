@@ -1,81 +1,78 @@
-// Portfolio UI: navigation, reveal animations, smooth scrolling and accessibility
-
+// Portfolio navigation, reveal and accessibility behavior.
 document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('.navbar');
   const hamburger = document.querySelector('.hamburger');
   const navList = document.querySelector('.navbar-nav');
-  const navLinks = [...document.querySelectorAll('.nav-link[href]')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const setMenu = (open) => {
+  // Missing optional local media should not leave broken-image icons in the UI.
+  document.querySelectorAll('img').forEach(img => {
+    const markMissing = () => img.classList.add('media-missing');
+    img.addEventListener('error', markMissing, { once: true });
+    if (img.complete && img.naturalWidth === 0) markMissing();
+  });
+
+  const closeMenu = () => {
     if (!hamburger || !navList) return;
-    hamburger.classList.toggle('active', open);
-    navList.classList.toggle('active', open);
-    hamburger.setAttribute('aria-expanded', String(open));
-    document.body.classList.toggle('no-scroll', open);
+    hamburger.classList.remove('active');
+    navList.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('no-scroll');
+  };
+
+  const toggleMenu = () => {
+    if (!hamburger || !navList) return;
+    const willOpen = !navList.classList.contains('active');
+    hamburger.classList.toggle('active', willOpen);
+    navList.classList.toggle('active', willOpen);
+    hamburger.setAttribute('aria-expanded', String(willOpen));
+    document.body.classList.toggle('no-scroll', willOpen);
   };
 
   if (hamburger && navList) {
-    hamburger.setAttribute('role', 'button');
-    hamburger.setAttribute('tabindex', '0');
-    hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.setAttribute('aria-label', hamburger.getAttribute('aria-label') || 'Toggle menu');
-
-    hamburger.addEventListener('click', () => setMenu(!navList.classList.contains('active')));
-    hamburger.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        setMenu(!navList.classList.contains('active'));
-      }
-    });
-
-    navLinks.forEach((link) => link.addEventListener('click', () => setMenu(false)));
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') setMenu(false);
-    });
-    document.addEventListener('click', (event) => {
-      if (!navList.classList.contains('active')) return;
-      if (!navList.contains(event.target) && !hamburger.contains(event.target)) setMenu(false);
-    });
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 1180) setMenu(false);
-    });
+    hamburger.addEventListener('click', toggleMenu);
+    navList.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
   }
 
-  const updateNavbar = () => {
-    if (!navbar) return;
-    navbar.classList.toggle('scrolled', window.scrollY > 30);
-  };
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1180) closeMenu();
+  });
+
+  const updateNavbar = () => navbar?.classList.toggle('scrolled', window.scrollY > 40);
   updateNavbar();
   window.addEventListener('scroll', updateNavbar, { passive: true });
 
-  // Same-page anchors only. Cross-page navigation remains untouched.
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (event) => {
-      const selector = anchor.getAttribute('href');
-      if (!selector || selector === '#') return;
-      const target = document.querySelector(selector);
+  // Only intercept valid same-page fragment links. A bare '#' must never reach querySelector.
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    const href = anchor.getAttribute('href');
+    if (!href || href === '#') return;
+    anchor.addEventListener('click', event => {
+      let target;
+      try { target = document.querySelector(href); } catch (_) { return; }
       if (!target) return;
       event.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
     });
   });
 
-  // Reveal animation. Content stays visible if IntersectionObserver is unavailable.
-  const revealItems = document.querySelectorAll('.animate, .card, .timeline-item, .project-timeline-item');
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
+  const revealTargets = document.querySelectorAll('.animate, .card, .timeline-item');
+  if (!('IntersectionObserver' in window) || reduceMotion) {
+    revealTargets.forEach(el => el.classList.add('reveal'));
+  } else {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('reveal');
-        observer.unobserve(entry.target);
+        revealObserver.unobserve(entry.target);
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
-    revealItems.forEach((item) => revealObserver.observe(item));
-  } else {
-    revealItems.forEach((item) => item.classList.add('reveal'));
+    revealTargets.forEach(el => revealObserver.observe(el));
   }
 
-  // Back to top
   let backToTop = document.querySelector('.back-to-top');
   if (!backToTop) {
     backToTop = document.createElement('button');
@@ -85,14 +82,24 @@ document.addEventListener('DOMContentLoaded', () => {
     backToTop.innerHTML = '<i class="fas fa-chevron-up" aria-hidden="true"></i>';
     document.body.appendChild(backToTop);
   }
-
-  const updateBackToTop = () => {
-    const visible = window.scrollY > 500;
-    backToTop.classList.toggle('show', visible);
-    backToTop.style.opacity = visible ? '1' : '0';
-    backToTop.style.visibility = visible ? 'visible' : 'hidden';
-  };
+  const updateBackToTop = () => backToTop.classList.toggle('visible', window.scrollY > 700);
   updateBackToTop();
   window.addEventListener('scroll', updateBackToTop, { passive: true });
-  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+
+  const langButton = document.querySelector('.language-switcher');
+  if (langButton && typeof window.switchLanguage === 'function') {
+    const syncLangButton = () => {
+      const current = document.documentElement.lang === 'ar' ? 'ar' : 'en';
+      langButton.textContent = current === 'en' ? 'AR' : 'EN';
+      langButton.setAttribute('aria-label', current === 'en' ? 'Switch to Arabic' : 'Switch to English');
+    };
+    syncLangButton();
+    langButton.addEventListener('click', () => {
+      const current = document.documentElement.lang === 'ar' ? 'ar' : 'en';
+      window.switchLanguage(current === 'en' ? 'ar' : 'en');
+      syncLangButton();
+      closeMenu();
+    });
+  }
 });

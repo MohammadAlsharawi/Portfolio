@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-lang="nav-certifications">Certifications | Mohammad Alsharawi</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -387,7 +387,6 @@
       }
     }
   </style>
-  <meta name="theme-color" content="#070b14">
 </head>
 
 <body>
@@ -407,16 +406,17 @@
         <li><a href="education.html" class="nav-link" data-lang="nav-education" aria-label="Education"></a></li>
         <li><a href="certifications.html" class="nav-link active" data-lang="nav-certifications" aria-label="Certifications"></a></li>
         <li><a href="services.html" class="nav-link" data-lang="nav-services" aria-label="Services"></a></li>
-        <li><a href="volunteers.html" class="nav-link">Volunteering</a></li>
+        <li><a href="volunteers.html" class="nav-link" data-lang="nav-Volunteering">Volunteering</a></li>
         <li><a href="contact.html" class="nav-link" data-lang="nav-contact" aria-label="Contact"></a></li>
 
 
       </ul>
 
 
-      <div class="hamburger" aria-label="Toggle Menu" aria-expanded="false" role="button" tabindex="0">
+      <button class="language-switcher" type="button" aria-label="Switch language">AR</button>
+      <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
-      </div>
+      </button>
     </div>
   </nav>
 
@@ -728,8 +728,8 @@
     buildCertTimelineX();
   </script>
 
-  <script src="language.js"></script>
-  <script src="main.js"></script>
-  <script src="components.js"></script>
+  <script src="assets/js/language.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/components.js"></script>
 </body>
 </html>
